@@ -95,4 +95,127 @@ public class SafeInput
 
     }
 
+    /**
+     * get an int value from the user within the specified inclusive range
+     *
+     * @param pipe Scanner to use for input
+     * @param prompt prompt that tells the user what to input
+     * @return an int value within the specified range
+     */
+    public static int getRangedInt(Scanner pipe, String prompt, int low, int high)
+    {
+        int retVal = 0;
+        String trash = "";
+        boolean done = false;
+
+        do {
+            System.out.print(prompt + " [" + low + " - " + high + "]");
+            if(pipe.hasNextInt())
+            {
+                retVal = pipe.nextInt();
+                pipe.nextLine();
+                if(retVal >= low && retVal <= high)
+                {
+                    done = true;
+                }
+                else
+                {
+                    System.out.println("You must enter a valid integer in range [" + low + " - " + high + "]");
+                }
+            }
+            else
+            {
+                trash = pipe.nextLine();
+                System.out.println("You must enter a valid integer not " + trash);
+            }
+
+        } while(!done);
+
+        return retVal;
+
+    }
+
+    /**
+     * get a double value from the user within the specified inclusive range
+     *
+     * @param pipe Scanner to use for input
+     * @param prompt prompt that tells the user what to input
+     * @return a double value within the specified range
+     */
+    public static double getRangedDouble(Scanner pipe, String prompt, double low, double high)
+    {
+        double retVal = 0;
+        String trash = "";
+        boolean done = false;
+
+        do {
+            System.out.print(prompt + " [" + low + " - " + high + "]");
+            if(pipe.hasNextDouble())
+            {
+                retVal = pipe.nextDouble();
+                pipe.nextLine();
+                if(retVal >= low && retVal <= high)
+                {
+                    done = true;
+                }
+                else
+                {
+                    System.out.println("You must enter a valid double in range [" + low + " - " + high + "]");
+                }
+            }
+            else
+            {
+                trash = pipe.nextLine();
+                System.out.println("You must enter a valid double not " + trash);
+            }
+
+        } while(!done);
+
+        return retVal;
+
+    }
+
+    /**
+     * get a string val form the user of [YyNn]
+     *
+     * @param pipe scanner to use to read the input
+     * @param prompt prompt to tell the user what is input
+     * @return true for Yy(yes) and false for Nn(no)
+     */
+
+    public static boolean getYNConfirm(Scanner pipe, String prompt)
+    {
+        String input = "";
+        boolean retVal = false;
+        boolean done = false;
+
+        do {
+            System.out.print(prompt + "[YyNn]: ");
+            input = pipe.nextLine();
+            if(input.isEmpty())
+            {
+                System.out.println("You must enter y or n!");
+            }
+            else if(input.equalsIgnoreCase("Y"))
+            {
+                retVal = true;
+                done = true;
+            }
+            else if(input.equalsIgnoreCase("N"))
+            {
+                retVal = false;
+                done = true;
+            }
+            else
+            {
+                System.out.println("You must enter Y or N! Not: " + input);
+            }
+
+
+        } while(!done);
+
+        return retVal;
+
+    }
+
 }
