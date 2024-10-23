@@ -29,9 +29,14 @@ public class DevTest {
         double income = getRangedDouble(in, "Enter your income", 5000, 100000);
         System.out.println("You said the income is " + income);
 
-         */
+
         boolean leaveClass = getYNConfirm(in, "Are you ready to leave class?");
         System.out.println(leaveClass);
+
+         */
+
+        String SSN = getRegExString(in, "Enter your SSN", "^\\d{3}-\\d{2}-\\d{4}$");
+        System.out.println("Your SSN: " + SSN);
     }
 
     /**
@@ -249,6 +254,36 @@ public class DevTest {
 
     }
 
+    /**
+     * returns a Sting value that matches a regular expression
+     *
+     * @param pipe the scanner to use for input
+     * @param prompt prompt - tells the user what to input
+     * @param regEx String - regular expression pattern used to match
+     * @return
+     */
+
+    public static String getRegExString(Scanner pipe, String prompt, String regEx)
+    {
+        String retVal = "";
+        boolean done = false;
+
+        do {
+            System.out.print(prompt + regEx + ": ");
+            retVal = pipe.nextLine();
+            if(retVal.matches(regEx))
+            {
+                done = true;
+            }
+            else
+            {
+                System.out.println("You must enter a value that matches pattern " + regEx + "not" + retVal);
+            }
+
+        } while(!done);
+
+        return retVal;
+    }
 
 
 
