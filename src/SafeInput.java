@@ -188,7 +188,6 @@ public class SafeInput
         String input = "";
         boolean retVal = false;
         boolean done = false;
-
         do {
             System.out.print(prompt + "[YyNn]: ");
             input = pipe.nextLine();
@@ -211,11 +210,8 @@ public class SafeInput
                 System.out.println("You must enter Y or N! Not: " + input);
             }
 
-
         } while(!done);
-
         return retVal;
-
     }
 
     /**
