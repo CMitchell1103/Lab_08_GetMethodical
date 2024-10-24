@@ -7,13 +7,16 @@ public class DevTest {
     {
         Scanner in = new Scanner(System.in);
 
-        /*
+
         String name = getNonZeroLenString(in, "Enter your name");
         System.out.println("Name is " + name);
 
+        /*
 
         int age = getInt(in, "Enter your age ");
         System.out.println("Your said your age is " + age);
+
+
 
 
 
@@ -22,21 +25,33 @@ public class DevTest {
 
 
 
+
+
         int favNum = getRangedInt(in, "Enter your fav number" ,1,10);
         System.out.println("You said your fav num is " + favNum);
+
 
 
         double income = getRangedDouble(in, "Enter your income", 5000, 100000);
         System.out.println("You said the income is " + income);
 
 
+
+
+
         boolean leaveClass = getYNConfirm(in, "Are you ready to leave class?");
         System.out.println(leaveClass);
 
-         */
+
+
+
 
         String SSN = getRegExString(in, "Enter your SSN", "^\\d{3}-\\d{2}-\\d{4}$");
         System.out.println("Your SSN: " + SSN);
+
+         */
+
+
     }
 
     /**
